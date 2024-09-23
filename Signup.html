@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="signup.css">
+  <script src="https://kit.fontawesome.com/3a43c8ce3d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="fullName" placeholder="Full Name" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-university"></i>
+            <input type="text" id="university" placeholder="University" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-id-card"></i>
+            <input type="text" id="studentID" placeholder="Student ID" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-home"></i>
+            <input type="text" id="address" placeholder="Full Address" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-city"></i>
+            <input type="text" id="city" placeholder="City" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-map"></i>
+            <input type="text" id="postalCode" placeholder="Postal Code" required />
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">By signing up, you agree with our Terms & Conditions and Privacy Statement</label>
+          </div>
+          <button type="submit" id="signup-button">Sign Up</button>
+        </form>
+      </div>
+      
+      <script src="script.js"></script>
+      <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const fullName = document.getElementById("fullName").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const university = document.getElementById("university").value;
+  const address = document.getElementById("address").value;
+  const city = document.getElementById("city").value;
+  const postalCode = document.getElementById("postalCode").value;
+
+  const janitorData = {
+    fullName,
+    email,
+    password,
+    university,
+    address,
+    city,
+    postalCode
+  };
+
+  // Store in localStorage
+  localStorage.setItem('janitorData', JSON.stringify(janitorData));
+
+  // Optionally, you can log it to check
+  console.log("Data stored:", janitorData);
+});
+</script>
+</body>
